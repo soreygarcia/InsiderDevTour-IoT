@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="InsiderDevTour.Sensors.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InsiderDevTour.Sensors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Purple">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="GpioStatus" Text="Waiting to initialize GPIO..." Margin="10,50,10,10" Foreground="White" TextAlignment="Center" FontSize="26.667" />
+            <TextBlock x:Name="TemperatureStatus" Text="" Margin="10,50,10,10" Foreground="White" TextAlignment="Center" FontSize="26.667" />
+            <TextBlock x:Name="ProximityStatus" Text=""  Margin="10,50,10,10" Foreground="White" TextAlignment="Center" FontSize="26.667" />
+            <TextBlock x:Name="InterruptText" Text="" Margin="10" Foreground="White" TextAlignment="Center" FontSize="26.667" />
+        </StackPanel>
+    </Grid>
+</Page>
