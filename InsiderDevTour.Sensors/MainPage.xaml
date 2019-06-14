@@ -10,10 +10,10 @@
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="GpioStatus" Text="Waiting to initialize GPIO..." Margin="10,50,10,10" Foreground="White" TextAlignment="Center" FontSize="26.667" />
-            <TextBlock x:Name="TemperatureStatus" Text="" Margin="10,50,10,10" Foreground="White" TextAlignment="Center" FontSize="26.667" />
-            <TextBlock x:Name="ProximityStatus" Text=""  Margin="10,50,10,10" Foreground="White" TextAlignment="Center" FontSize="26.667" />
-            <TextBlock x:Name="InterruptText" Text="" Margin="10" Foreground="White" TextAlignment="Center" FontSize="26.667" />
+            <TextBlock x:Name="GpioStatus" Text="Waiting to initialize GPIO..." Margin="10,50,10,10" Foreground="White" TextAlignment="Center" FontSize="40" />
+            <TextBlock x:Name="TemperatureStatus" Text="" Margin="10,50,10,10" Foreground="White" TextAlignment="Center" FontSize="40" />
+            <TextBlock x:Name="ProximityStatus" Text=""  Margin="10,50,10,10" Foreground="White" TextAlignment="Center" FontSize="40" />
+            <TextBlock x:Name="InterruptText" Text="" Margin="10" Foreground="White" TextAlignment="Center" FontSize="40" />
         </StackPanel>
     </Grid>
 </Page>

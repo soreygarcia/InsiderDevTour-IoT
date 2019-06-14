@@ -49,6 +49,8 @@ namespace InsiderDevTour.Sensors
         //color sensor
         private TCS34725Sensor colorSensor = new TCS34725Sensor();
 
+        public bool IsRecognizing { get; private set; }
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -85,11 +87,19 @@ namespace InsiderDevTour.Sensors
 
         private async void OnInterrupt(GpioPin sender, GpioPinValueChangedEventArgs e)
         {
-            // only act on initial pull-down event from the interrupt; avoid rising edge trigger upon reset
-            if (e.Edge == GpioPinEdge.FallingEdge)
+            try
             {
-                // try to recognize viewer and greet them by name
-                await RecognizeAndGreetViewer();
+                // only act on initial pull-down event from the interrupt; avoid rising edge trigger upon reset
+                if (e.Edge == GpioPinEdge.FallingEdge)
+                {
+                    if (!IsRecognizing)
+                        // try to recognize viewer and greet them by name
+                        await RecognizeAndGreetViewer();
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
         #endregion
@@ -128,6 +138,7 @@ namespace InsiderDevTour.Sensors
             IoTCentral.InitClient();
 
             GpioStatus.Text = "";
+            TemperatureStatus.Text = "Waiting for data...";
 
             // start measuring temperature and proximity 
             measureTimer.Start();
@@ -135,8 +146,7 @@ namespace InsiderDevTour.Sensors
 
         private async Task RecognizeAndGreetViewer()
         {
-            GpioStatus.Text = "";
-
+            this.IsRecognizing = true;
             // let viewer know we're taking picture
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => InterruptText.Text = "Taking picture...");
 
@@ -162,12 +172,12 @@ namespace InsiderDevTour.Sensors
 
             // delete photo taken of viewer
             await photoFile.DeleteAsync();
+
+            this.IsRecognizing = false;
         }
 
         private async Task RecognizeAndGreetViewerUsingBlogStorage()
         {
-            GpioStatus.Text = "";
-
             // let viewer know we're taking picture
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => InterruptText.Text = "Taking picture...");
 

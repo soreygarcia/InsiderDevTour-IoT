@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace InsiderDevTour.Sensors.Services
 {
-    //dps-keygen -di:1df0b2a0-2ec6-438a-85fd-760c0b29271c -dk:3WAvFonMjbONVsSImb7uaDTvNuPl7BKEZEWYggni4d4= -si:0ne0005CB82
     class IoTCentral
     {
         static DeviceClient Client = null;
@@ -71,8 +70,7 @@ namespace InsiderDevTour.Sensors.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine();
-                Console.WriteLine("Intentional shutdown: {0}", ex.Message);
+                
             }
         }
 

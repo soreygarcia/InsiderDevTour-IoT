@@ -12,19 +12,19 @@ namespace InsiderDevTour.Sensors.Constants
     public static class AzureCredentials
     {
         // Face API subscription key and group
-        public const string subscriptionKey = "";
-        public const string serviceEndpoint = "";
-        public const string personGroup = "";
+        public const string subscriptionKey = "<yours>";
+        public const string serviceEndpoint = "https://<yours>.api.cognitive.microsoft.com";
+        public const string personGroup = "<yours>";
         // IoT Central IoT Hub credentials
-        public const string hubDeviceId = "";
-        public const string hubConnectionString = "";
+        public const string hubDeviceId = "<yours>";
+        public const string hubConnectionString = "<yours>";
 
-        public const string centralDeviceId = "";
-        public const string centralConnectionString = "";
+        public const string centralDeviceId = "<yours>";
+        public const string centralConnectionString = "<yours>";
 
-        public const string AccountName = "";
-        public const string AccountKey = "";
-        public const string ImageContainer = "";
+        public const string AccountName = "<yours>";
+        public const string AccountKey = "<yours>";
+        public const string ImageContainer = "<yours>";
     }
 }
 

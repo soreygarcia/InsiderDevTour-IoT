@@ -25,23 +25,30 @@ namespace InsiderDevTour.Sensors.Services
 
         public static async Task SendDeviceToCloudMessage(double temperature, string color)
         {
-            // create new telemetry message
-            var telemetryDataPoint = new
+            try
             {
-                time = DateTime.Now.ToString(),
-                deviceId = AzureCredentials.hubDeviceId,
-                temperature = temperature,
-                color = color
-            };
+                // create new telemetry message
+                var telemetryDataPoint = new
+                {
+                    time = DateTime.Now.ToString(),
+                    deviceId = AzureCredentials.hubDeviceId,
+                    temperature = temperature,
+                    color = color
+                };
 
-            // serialise message to a JSON string
-            string messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+                // serialise message to a JSON string
+                string messageString = JsonConvert.SerializeObject(telemetryDataPoint);
 
-            // format JSON string into IoT Hub message
-            Message message = new Message(Encoding.ASCII.GetBytes(messageString));
+                // format JSON string into IoT Hub message
+                Message message = new Message(Encoding.ASCII.GetBytes(messageString));
 
-            // push message to IoT Hub
-            await deviceClient.SendEventAsync(message);
+                // push message to IoT Hub
+                await deviceClient.SendEventAsync(message);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
 
